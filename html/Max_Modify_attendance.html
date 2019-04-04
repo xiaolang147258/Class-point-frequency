@@ -1,0 +1,691 @@
+<DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>修改考勤页面</title>
+  <!-- import CSS -->
+  <script src="../js/vue.js"></script>    
+ 
+ <!--解决ui组件不适配问题-->
+ <meta  charset="utf-8" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+ 
+<!--移动适配-->  
+ <script type="text/javascript" src="../js/yidong.js"></script>
+ <link rel="stylesheet" type="text/css" href="../css/yidong.css"/>
+  
+ <script src="../node_modules/_vant@1.3.5@vant/lib/vant.js"></script>
+ <link rel="stylesheet" href="../node_modules/_vant@1.3.5@vant/lib/vant-css/index.css">
+ 	
+  <style type="text/css">
+  	body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div{margin:0;padding:0;border:0;} body{background:#fff;color:#333;font-size:12px; }  ul,ol{list-style-type:none;} select,input,img,select{vertical-align:middle;}  a{text-decoration:none;} a:link{color:#009;} a:visited{color:#800080;} a:hover,a:active,a:focus{color:#c00;text-decoration:underline;}
+  	div{
+  		box-sizing: border-box;
+  	}
+  	/*#top{
+  		width: 100%;
+  		height: 1.173333rem;
+  		background: white;
+  		border-top: 0.007142rem solid #DEDEDE;
+  		text-align: center;
+  		position: fixed;
+  		top:0.96rem;
+  		left:0;
+  		z-index: 500;
+  	}*/
+  	/*#top input{
+  		width: 9.2rem;
+  		height: 0.906666rem;
+  		background: #F8F8F8;
+  		border: none;
+  		border-radius: 0.453333rem;
+  		text-align: center;
+  		margin-top: 0.133333rem;
+  	}*/
+  	
+    .toubiao{
+    	width: 100%;
+    	height: 0.571428rem;
+    	background: #F5F5F5;
+    	line-height: 0.571428rem;
+    	padding-left: 0.453333rem;
+    	box-sizing: border-box;
+    	font-size: 0.4rem;
+    }
+    .boxs{
+    	width:100%;
+    	height: 2.813333rem;
+    	background: white;
+    	border-bottom: 0.013333rem solid #DEDEDE;
+    	line-height: 1.813333rem;
+    	padding-left: 0.2rem;
+    	position: relative;
+    	/*padding-right: 0.7rem;*/
+    }
+     .img_box{
+     	width: 1.28rem;
+     	height: 1.28rem;
+     	float: left;
+     	margin: 0.766666rem 0.266666rem 0 0;
+     	/*background: yellowgreen;*/
+     	border-radius: 50%;
+     }
+     .name{
+     	font-size: 0.373333rem;
+     	float: left;
+     	margin: 0;
+     	width: 1.571428rem;
+     	height: 100%;
+     	overflow: hidden;
+     	/*margin-right: 282px;*/
+     	text-align: center;
+     	line-height: 2.837333rem;
+     }
+     
+  	#top p{
+  		 font-size: 0.426666rem;
+  		 color: #DEDEDE;
+  		 position: absolute;
+  		 left: 4rem;
+  		 top: 0.293333rem;
+  	}
+  	#top img{
+  		 	width: 0.4rem;
+  		 	height: 0.4rem;
+  		 position: absolute;
+  		 left:3.44rem;
+  		 top: 0.4rem;
+  	}
+  	#xuan{
+  		  width: 1rem;
+  		  height: 0.8rem;
+  		  /*float: left;*/
+  		  font-size: 0.342857rem;
+  		  text-align: center;
+  		  line-height: 0.8rem;
+  		  margin-right:0.215714rem;
+  		  margin-top: 0.411428rem;
+  		  border-radius: 0.071428rem;
+  	}
+  	.xuana{
+  		color: #999999;
+  		background: #DEDEDE;
+  	}
+  	#uls{
+  		 
+  		 color: #BE1B1B;
+  		 position: fixed;
+  		 top: 2.085714rem;
+  		 right: 0.3rem;
+  		 z-index: 600;
+  		 text-align: center;
+  	}
+  	#uls li{
+  		height: 0.521428rem;
+  		width: 0.371428rem;
+  		line-height: 0.471428rem;
+  		text-align: center;
+  		position: relative;
+  		text-align: center;
+  	}
+  	#tt p,img{
+  		float: left;
+  	}
+  	#tt img{
+  		width: 0.266666rem;
+  		height: 0.146666rem;
+  		margin-top: 0.426666rem;
+  		margin-left: 0.28rem;
+  	}
+  	.sx{
+  		font-size: 0.32rem;
+  		color: #999999;
+  		margin: 0 0.986666rem 0 0;
+  	}
+    
+  	#ti{
+  		 width: 100%;
+  		 height: 1.4rem;
+  		 background: #61BAFC;
+  		 text-align: center;
+  		 line-height: 1.4rem;
+  		 color: white;
+  		 font-size: 0.514285rem;
+  		 position: fixed;
+  		 bottom: 0rem;
+  		 left: 0;
+  		 z-index: 500;
+  	}
+  	#tt{
+  		 background: white;
+  		 position: fixed;
+  		 top: 0;
+  		 left: 0;
+  		 z-index: 500;
+  	}
+  	#date{
+  		 width:3.142857rem;
+  		 height: 0.96rem;
+  		 /*background: red;*/
+  		 position: fixed;
+  		 top: 0;
+  		 left: 3.642857rem;
+  		 border: none;
+  		 BACKGROUND-COLOR: transparent;
+       color:transparent
+  	}
+  	.x1{background: #4FC6CB;color: #FFFFFF;}
+    .x2{background: #EDB22C;color: #FFFFFF;}	 
+    .x3{background: #FC6161;color: #FFFFFF;}	 
+    .x4{background: #E67BC9;color: #FFFFFF;}
+    .x5{background: #61BAFC;color: #FFFFFF;}
+    .x6{background: #A4CC59;color: #FFFFFF;}
+    .lis{
+    	 font-size: 0.228571rem; 
+    	 
+    }
+    .lis_s{
+    	font-size: 0.228571rem; 
+    	 /*font-weight: 600;*/ 
+    	 color: white;
+    }
+    .p_bads{
+    	
+    }
+    .p_bad{
+    	 width:0%;
+    	 height: 0%;
+    	 position: absolute;
+    	 top: 0;
+    	 z-index: 2;
+    	  text-align: center;
+    	 line-height: 0.328571rem;
+    }
+    .p_bs{
+    	 height: 0.521428rem;
+  		width: 0.371428rem;
+    	 background:#61BAFC;
+    	
+    	 z-index: 2;
+    	 /*border-radius: 50%;*/
+    	 
+    	 line-height: 0.328571rem;
+    	  /*border-radius: 50%;*/
+    	 position: absolute;
+    	 top: 0;
+    	 
+    	 transition: 0.3s;
+    	 
+    }
+    .pass{
+    	 width: 100%;
+    	 height: 100%;
+    	 position: absolute;
+    	 top: 0;
+    	 left: 0;
+    	 z-index: 5;
+    	 /*color: white;*/
+    	transition: 0.2s;
+    }
+    .psa{
+    	 color: white;
+    	 
+    }
+    .img_box img{
+    	 width: 100%;
+    	 height: 100%;
+    }
+    
+    
+     #mengs{
+  	background:rgba(255,255,255,0.95);
+  	 /*height: 6.666666rem;*/
+  	 width: 100%;
+  	 height: 100%;
+  	 position: fixed;
+  	 top: 0;
+  	 left: 0;
+  	 z-index: 1000;
+  	 /*transition: 0.3s;*/
+  }
+  #ales{
+  	 width: 6.333333rem;
+  	 height: 6.333333rem;
+  	 margin: 4.333333rem auto;
+  	 position: relative;
+  }
+  
+  #mengs div img{
+  	width: 100%;
+  	height: 100%;
+  }
+   #mengs div p{
+   	  font-size:0.4rem;
+   	  color: #61BAFC;
+   	  font-family:'Microsoft JhengHei';
+   	  font-weight: 600;
+   }
+   #p_bs{
+   	  width: 100%;
+   	  height: 0.4rem;
+   	  line-height: 0.4rem;
+   	  text-align: center;
+   	  position: absolute;
+   	  left: 0;
+   	  bottom: 0;
+   }
+   
+   .ale{
+   	  transition: 0.5s;
+   }
+   .ales{
+   	   width: 100%;
+   	   height: 100%;
+   	   background: rgba(0,0,0,0.7);
+   	   position: fixed;
+   	   top:0;
+   	   left:0;
+   	   z-index: 1000;
+   } 
+   #ale_ch{
+   	  width: 5.333333rem;
+   	  height: 7.5rem;
+   	  padding: 0.25rem 0;
+   	  background: white;
+   	  border-radius: 0.133333rem;
+   	  margin: 4.333333rem auto 0 auto;
+   	  overflow: hidden;
+   }
+   #ale_btn{
+   	  width: 5.33rem;
+   	  height: 1rem;
+   	  background: #2b99ff;
+   	  margin: 0.8rem auto;
+   	  font-size: 0.373333rem;
+   	  text-align: center;
+   	  line-height: 1rem;
+   	  color: white;
+   	   border-radius: 0.133333rem;
+   }
+   .ale_ch_c{
+   	  width: 100%;
+   	  height: 1rem;
+   	  line-height: 1rem;
+   	  /*border-top: 0.013333rem solid #DEDEDE;*/
+   	  font-size: 0.3733333rem;
+   	  padding: 0 1rem;
+   	  /*background: #262626;*/
+   }
+   .box_box{
+   	  width: 1rem;
+   	  height: 100%;
+   	  float: left;
+   	  margin-left:0.866666rem;
+   }
+  </style>
+</head>
+<body style="height: 100%;">
+	
+	<!--body设置高度为100%div设置高度为100%时高度就是视口的高度-->
+	 <div id='mengs'>
+	 	 <div id="ales">
+	 		 <img src="../img/gif/0147d85b320ba0a80120b959abcc40.gif"/>
+	 		    <div id="p_bs"><p>加载中...</p></div>
+	 	   </div>
+	 </div>
+	
+	<!--
+		js:
+		
+		$('#mengs').fadeOut(300);
+	 
+	-->
+	
+	
+	
+	
+  <div id="app" style="width:100%;float:left;padding-top:0.96rem;padding-bottom: 1.4rem;">
+<!---------------------------------------------------------------------------------------------------------------------------------->	
+  	  <div id="tt"  style="width: 100%;height: 0.96rem;line-height: 0.96rem;">
+  	  	
+  	  	<!--<input  type="date" name="date" id="date" @change='da' />-->
+  	  	
+      <div style="width:100%;height:100%;padding-left: 0.45rem;">
+      <!--<p class="sx">上个月</p>-->
+    	<span >
+    		<!--<p style="font-size:0.426666rem;height: 100%;">{{dates}}</p>-->
+    		<p  style="font-size:0.406666rem;height: 100%;padding-right: 0.40714rem;">{{banji}}</p>
+    		<p style="font-size:0.406666rem;height: 100%;">{{cew_date}}</p>
+    	    <!--<img src="../img/shouqi@2x.png"/>-->
+    	</span>
+    	<!--<p style="margin:0;float: right;" class="sx">下个月</p>-->
+      </div>
+     </div>
+<!----------------------------------------------------------------------------------------------------------------------------------->  	
+  	  <!--<div id="top">
+  	  	  <p v-show="inps" @click="jiaos">搜索学生姓名</p>
+  	  	  <img  v-show="inps"  @click="jiaos" src="../img/sousuo@3x.png" alt="" />
+  	  	<input v-model="inpv" id="inp" @blur.prevent="changeCount()" @focus="inps=false" @input="changeCount()" type="text"  />
+  	  </div>-->
+  	  
+  	  <div>
+  	  	
+  	   <ul id="uls">
+  	   	  <div class="p_bs"></div>
+  	   	  <li v-for='(i,index) in active' v-show="i.StudentList.length!=0" @click='cehua(index,i.initials)' class="li_ac" >
+  	   	  	 <p class="pass" :class="{psa:li_ac==index}">{{i.initials}}</p>
+  	   	  </li>
+  	   </ul>
+  	   
+  	  <div id="xiang" v-for='(h,c) in active'>
+  	   <div class="toubiao">{{h.initials}}</div>
+  	    <div v-for='(j,a) in h.StudentList' class="boxs">
+  	  	  <div class="img_box">
+  	  	  	<img src="../img/lixiaomeng@2x.png"/></div>
+  	  	  <p class="name">{{j.surname}}</p>
+  	  	  
+  	  	  <div class="box_box">
+  	  	    <div  @click='xia(c,a,1)' id="xuan" :class="{x1:((j.type_id)==1)?true:false,xuana:((j.type_id)!=1)?true:false}">出勤</div>
+  	  	    <div  @click='xia(c,a,2)' id="xuan" :class="{x2:((j.type_id)==2)?true:false,xuana:((j.type_id)!=2)?true:false}">迟到</div>	    
+  	  	  </div> 
+  	  	  
+  	  	  <div class="box_box">
+  	  	   <div  @click='xia(c,a,3)' id="xuan" :class="{x3:((j.type_id)==3)?true:false,xuana:((j.type_id)!=3)?true:false}">请假</div>
+  	  	   <div  @click='xia(c,a,5)' id="xuan" :class="{x4:((j.type_id)==5)?true:false,xuana:((j.type_id)!=5)?true:false}">旷课</div>
+  	  	  </div> 
+  	  	  
+  	  	  <div class="box_box">
+  	  	   <div  @click='xia(c,a,4)' id="xuan" :class="{x5:((j.type_id)==4)?true:false,xuana:((j.type_id)!=4)?true:false}">病/公</div>
+  	       <div  @click='xia(c,a,6)' id="xuan" :class="{x6:((j.type_id)==6)?true:false,xuana:((j.type_id)!=6)?true:false}">早退</div>
+  	      </div> 
+  	      
+  	    </div>	  
+  	  </div> 	
+  	   
+  	   
+  	  <div id="ti" @click='go'>提交</div></div>
+  	  	  
+  	  <!--<div id="ti" @click='show_xx=true'>提交</div></div>-->
+  	  
+  	  <div @touchmove.prevent class="ale" :class="{ales:show_xx}">
+  	  	<div v-show="show_xx">
+  	  		 <div id="ale_ch">
+  	  		 	 <div class="ale_ch_c" style="text-align: center;font-weight: 600;">提交成功</div>
+  	      	 <div v-for="(i,index) in cwa_type_c" class="ale_ch_c">
+  	      	 	  <p style="float:left;color:#2b99ff;font-weight: 600;">{{i.type}}</p>
+  	      	 	  <p style="float:right;color: #999999;">{{i.num}}人</p>
+  	      	 </div>
+  	      </div>
+  	      <div @click="block_ca" id="ale_btn"> 确定</div>
+  	  	</div>
+  	     
+  	  </div>
+  	  
+  	  <van-popup v-model="show_xxs" style='background:rgba(0,0,0,0.02)'>
+  	  	<div style="">
+  	  		  <van-loading size='50'/>
+  	  	</div>
+  	  </van-popup>
+      
+  	  
+  </div>
+</body>
+
+  <script src="../js/jq.js"></script>
+  <script src="../js/axios.js"></script>
+  <script src="../js/vuex.js"></script>
+  <script>
+  	
+  	//控制微信浏览器回退按钮，跳转至指定页面
+  	pushHistory();
+        window.addEventListener("popstate",function(e){
+            location.href='./002banwu_kaoqin.html'
+        });
+        function pushHistory(){
+        var state = { 
+            title:"title", 
+            url:"#"
+        }; 
+        window.history.pushState(state,"title","#"); 
+    } 
+  	
+  	
+  	
+  	
+    new Vue({
+      el: '#app',
+      data: function(){
+        return {
+        	show_xxs:false,
+        	show_xx:false,
+        	cwa_type_c:[
+        	           {type:'出勤',num:10},
+        	           {type:'迟到',num:10},
+        	           {type:'请假',num:10},
+        	           {type:'旷课',num:10},
+        	           {type:'病/公',num:10},
+        	           {type:'早退',num:10},
+        	           ],
+        	           
+        	banji:'',
+        	cew_date:'1',
+        	xuan:0,
+        	inps:true,
+        	inpv:'',
+        	dates:'',
+        	active:[{initials:"A",StudentList:[{surname:'ALEX',type_id:1,student_id:17665}]},
+        	       {initials:"B",StudentList:[{surname:'BILI',type_id:1,student_id:17665}]},
+        	       {initials:"C",StudentList:[{surname:'CILI',type_id:1,student_id:17665}]}],
+        	       
+        	li_ac:0,      
+        	bei:'',        
+        	
+        	student_acts:'',
+        	student_actss:'',
+        	
+        	ClassesCheckItems:'',//当前班级信息
+        	
+         }
+      },
+      methods:{
+      	block_ca(){
+      		this.show_xx = false
+      		this.destroyed()
+        	location.href = './002banwu_kaoqin.html'
+      	},
+      	
+      	 post_checkin(){
+      	 	     this.show_xxs = true
+      	 	     console.log(localStorage.now_day);
+      	 	     console.log(this.student_actss.substr(0,this.student_actss.length-1));
+      	 	        $.ajax({  
+                        type:'post', 
+                        url:Main_domain_name+'/api/course/course-check-edit-save?api_token='+localStorage.api_token,  
+                        traditional:true, 
+                        dataType:"json",  
+                        data:{
+                        	now_day:this.ClassesCheckItems.now_day,
+                          trust_course_id:this.ClassesCheckItems.trust_course_id,
+                          schooltime_id:this.ClassesCheckItems.schooltime_id,
+                          student:this.student_acts.substr(0,this.student_acts.length-1),
+                          check_type:this.student_actss.substr(0,this.student_actss.length-1)
+                        },
+                          success:res=>{ 
+                              console.log(res.data.info);
+                               if(res.code == 200){
+                               	this.show_xxs = false
+                               	this.cwa_type_c[0].num = res.data.info.attendance_count;//出勤
+                               	this.cwa_type_c[1].num = res.data.info.belate_count;//迟到
+                               	this.cwa_type_c[2].num = res.data.info.leave_count;//请假
+                               	this.cwa_type_c[3].num = res.data.info.truant_count;//旷课
+                               	this.cwa_type_c[4].num = res.data.info.holiday_leave_count;//病/公  
+                                this.cwa_type_c[5].num = res.data.info.leave_early_count;//早退
+                               
+                               	this.show_xx = true
+                               
+                               }else{
+                               	   vant.Toast('发生了错误，或者请你检查一下的网络')
+                               }
+                          }  
+                    });  
+
+   	 	      
+//    		  axios({
+//          method:"post",
+//          url:"http://teachers.cieo.com.cn/api/class-service/classes-check-in",
+//          contentType:"application/json;charset=UTF-8",
+//          dataType:"json",  
+//          data:JSON.stringify({
+//               now_day:localStorage.now_day,
+//               trust_classes_id:localStorage.trust_classes_id,
+//               schooltime_id:localStorage.schooltime_id,
+//               type_isp:'0',
+//               student:this.student_acts.substr(0,this.student_acts.length-1),
+//               check_type:this.student_actss.substr(0,this.student_actss.length-1) 
+//           })
+//           }).then(res=>{
+//                    console.log(res);
+//           }).catch(err=>{
+//                    console.log(err);
+//           });
+              
+      	 },
+      	
+      	 get_active(){
+      	 		
+      		  axios.get(Main_domain_name+'/api/course/course-check-edit?api_token='+localStorage.api_token+'&id='+localStorage.id+'&page=1'
+        	      ).then(res=>{
+        	      	 if(res.status==200){
+        	      	 	  console.log(res.data.data)
+                      this.banji = res.data.data.ClassesItems.title
+                      this.cew_date = res.data.data.CheckTime;
+                      this.active = res.data.data.info;
+                      this.ClassesCheckItems = res.data.data.ClassesCheckItems;
+                      
+                     if(res.data.data.NewStudent.length!=0){
+                     	var ass = {
+                      	    initials:'*',
+                      	    StudentList:res.data.data.NewStudent
+                      }
+                      this.active.push(ass)
+                     }
+                      
+                      for(i in this.active){
+                      	   for(j in this.active[i].StudentList){
+                      	   	    this.student_acts+=this.active[i].StudentList[j].student_id+','
+                      	   }
+                      }
+                      
+                      for(i in this.active){
+                      	   for(j in this.active[i].StudentList){
+                      	   	    this.student_actss+=this.active[i].StudentList[j].type_id+','
+                      	   }
+                      }
+                      
+                      $('#mengs').fadeOut(100);
+                      
+        	      	 }else{
+        	      		  vant.Toast('Something went wrong.(发生了错误 )');
+        	      	 }
+                }).catch(err=>{
+                      console.log(err);
+              });
+      	 },
+      	 
+      	 
+      	 handleScroll(){//监测滑动，使右侧li同步到指定字母位置
+            var a = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+            let len = $('.toubiao').length-1
+            for (; len > -1; len--){
+            	   if(a>=$('.toubiao').eq(len).offset().top-($('#tt').height()+8)){
+            	   	   this.li_ac = len
+            	   	   $('.p_bs').css('top',$('#uls li').height()*(len)); 
+            	   	   break
+            	   }
+             }
+         },
+         destroyed (){//移除页面监听--跳转其他页面务必调用该事件
+           window.removeEventListener('scroll', this.handleScroll)
+         },
+      	cehua(index,i){//控制页面滑动到指定位置
+      		  this.destroyed()
+      		  
+      		  this.li_ac = index;
+      		  
+      		  vant.Toast({ 
+      		  	    message:i,
+      		  	    duration:500
+      		  });
+      		  var a = this.active.slice(0,index)
+      		  var c = 0;
+      		  for(var i=0;i<a.length;i++){
+      		  	  c+=a[i].StudentList.length;
+      		  };
+      		  var height_s = (a.length*$('.toubiao').height())+(c*$('.boxs').height());
+      		  
+      		  $('.p_bs').css('top',((a.length)*$('#uls li').height()));
+      		  
+      		  $("html, body").animate({scrollTop: height_s});
+      		  
+      		  window.setTimeout(()=>{
+      		  	  window.addEventListener('scroll', this.handleScroll);
+      		  },500)
+
+      	},
+      	go(){//点击   提交   ==》  弹出提示信息
+      		vant.Dialog.confirm({
+        		 title: '提示',
+        		 message: '是否提交？'
+      		}).then(()=>{
+      			this.post_checkin()
+      		}).catch(()=>{
+        		 
+      		})
+      	},
+      	ben_date(){
+      		var a = new Date();
+      		this.dates = ((a.getFullYear()+'').substr(2,2))+'年'+(a.getMonth()+1)+'月'+a.getDate()+'日'
+      	},
+      	da(value){
+      		console.log(value.srcElement.valueAsDate);
+      		var a = value.srcElement.valueAsDate;
+      		this.dates = ((a.getFullYear()+'').substr(2,2))+'年'+(a.getMonth()+1)+'月'+a.getDate()+'日'
+      	},
+      	xia(i,a,index){//用户修改学生状态函数
+      		  this.active[i].StudentList[a].type_id = index;
+      		  var as = this.student_acts.split(",")
+      		  var adr = this.active[i].StudentList[a].student_id+''
+      		  for(h in  as){
+      		  	    if(adr==as[h]){
+      		  	    	   var c = this.student_actss.split(",")
+      		  	    	   c[h] = index+''
+      		  	    	   this.student_actss = c.join(',')
+      		  	    }
+      		  }
+      		  
+      		  console.log(this.student_actss)
+      		  
+      	},
+      	 jiaos(){
+      	 	   this.inps = false;
+      	 	   document.getElementById('inp').focus();
+      	},
+      	changeCount(){
+      	 	   this.inpv==''?this.inps=true:this.inps=false;
+      	},
+      	dal(){
+      	      
+      	},
+      	
+      },
+      mounted(){
+      	  this.ben_date();
+      	  window.addEventListener('scroll', this.handleScroll);
+      	  this.get_active();
+      	  
+      	  console.log(localStorage.now_day)
+      	  
+      }
+      
+    })
+  </script>
+</html>

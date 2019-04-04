@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>班务</title>
+  <!-- import CSS -->
+  <script src="../../js/vue.js"></script>   
+ <meta  charset="utf-8" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+  <script type="text/javascript" src="../../js/yidong.js"></script>
+  <link rel="stylesheet" type="text/css" href="../../css/yidong.css"/>
+  
+  
+  <style type="text/css">
+  	body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div{margin:0;padding:0;border:0;} body{background:#fff;color:#333;font-size:12px;font-family:"Arial Narrow";}  ul,ol{list-style-type:none;} select,input,img,select{vertical-align:middle;}  a{text-decoration:none;} a:link{color:#009;} a:visited{color:#800080;} a:hover,a:active,a:focus{color:#c00;text-decoration:underline;}
+  		div{box-sizing: border-box;}
+  		*{
+  			font-family: "微软雅黑";
+  		}
+  	.btn_box{
+  		width: 100%;
+  		height: 1.306666rem;
+  		border-top: 0.006666rem solid rgba(222,222,222,1);
+  		position:fixed ;
+  		bottom: 0;
+  		left: 0;
+  		background: white;
+  		/*background: red;*/
+  	}
+  	.btn_box div{
+  		/*width: 0.6rem;*/
+  		height: 100%;
+  		float: left;
+  		/*background: deepskyblue;*/
+  		/*text-align: center;*/
+  	}
+  	.btn_box img{
+  		width: 0.52rem;
+  		height:0.426666rem;
+  		margin-top: 0.2rem;
+  		margin-bottom: 0.106666rem;
+  	}
+  	.btn_box p{
+  		font-size: 0.293333rem;
+  		
+  	}
+  	
+  	
+  	#tops{
+  		width: 100%;
+  		height: 2.946666rem;
+  		background: white;
+  		line-height: 2.946666rem;
+  		padding-top:0.36rem;
+  		/*border-top: 0.006666rem solid #DEDEDE;*/
+  	}	
+  	#tops img{
+  		
+  	}
+  	#imgx img{
+  		 -moz-transition: 0.3s; /* Firefox 4 */
+       -webkit-transition: 0.3s; /* Safari and Chrome */
+       -o-transition: 0.3s; /* Opera */
+      }
+  	
+  	#tt p,img{
+  		float: left;
+  	}
+  	#tt img{
+  		width: 0.266666rem;
+  		height: 0.146666rem;
+  		margin-top: 0.426666rem;
+  		margin-left: 0.28rem;
+  	}
+  	.sx{
+  		font-size: 0.32rem;
+  		color: #999999;
+  		/*margin: 0 0.986666rem 0 0;*/
+  	}
+  	#topz{
+  		width: 100%;
+  		height: 0.706666rem;
+  		background: #F5F5F5;
+  		text-align: center;
+  		line-height: 0.706666rem;
+  		font-size: 0.32rem;
+  		color: #999999;
+  		/*margin-top:0.026666rem*/
+/*  		border-bottom: 0.013333rem solid rgba(222, 222, 222);*/
+  	}
+   .top_img{
+  	width:2.346666rem;
+  	height:2.346666rem;
+  	
+  }
+  .top_i{
+    width: 2.013333rem;	
+  	height: 2.013333rem;
+  	margin-top: 0.173333rem;
+  }
+  #mengs div img{
+  	width: 100%;
+  	height: 100%;
+  }
+   #mengs div p{
+   	  font-size:0.4rem;
+   	  color: #61BAFC;
+   	  font-family:'Microsoft JhengHei';
+   	  font-weight: 600;
+	  text-align:center
+   }
+    #ales{
+   	 width: 6.333333rem;
+   	 height: 6.333333rem;
+   	 margin: 4.333333rem auto;
+   	 position: relative;
+   }
+   .to_box{
+	   width: 100%;
+	   /* margin-top: 0.266666rem; */
+	   padding-top: 0.373333rem;
+	   /* padding-bottom:1.4rem; */
+	   background: white;
+   }
+   .img_boxs{
+	   width: 8.293333rem;
+	   height: 3.6rem;
+	   margin: auto;
+   }
+   .img_boxs img{
+	   width: 100%;
+	   height: 100%;
+   }
+   .click_pin{
+	   width: 2.066666rem;
+	   height: 2.066666rem;
+	   position: fixed;
+	   bottom: 2.913333rem;
+	   right: 0.226666rem;
+   }
+   .tatil{
+	   font-size: 0.426666rem;
+	   color: #000000;
+	   font-weight: 600;
+	   margin-top: 1.2rem;
+	   margin-left: 0.4rem;
+   }
+   .ban_box_f{
+	   width: 7.786666rem;
+	   margin:0.8rem auto;
+	   display:-webkit-flex; 
+	    display:flex;
+	   	 flex-direction:row;
+	   	flex-wrap:wrap;
+	   	justify-content:space-between;
+   }
+   .ban_box_f div{
+	   width:3.66rem;
+height:1.013333rem;
+background:rgba(97,186,252,1);
+opacity:1;
+border-radius:0.133333rem;
+	   font-size:0.426666rem;
+font-family:PingFang SC;
+font-weight:500;
+line-height:1.013333rem;
+color:rgba(255,255,255,1);
+text-align:center;
+       margin-bottom: 0.4rem;
+   }
+  </style>
+</head>
+
+<body style="height:100%;">
+	<!--body设置高度为100%div设置高度为100%时高度就是视口的高度-->
+	 <div id='mengs'>
+	 	 <div id="ales">
+	 		 <img src="../../img/gif/0147d85b320ba0a80120b959abcc40.gif"/>
+	 		    <div id="p_bs"><p>加载中...</p></div>
+	 	   </div>
+	 </div>
+	
+    <div id="app" style="width:100%;float:left;padding-bottom:1.333333rem;background:white;">
+  	  <div  id="tops">
+  	 	<div id="imgx" style="width:7.7rem;height: 2rem;margin: auto;position: relative;">
+  	 	    <img @click="dat"  :class="top==1?'top_img':'top_i'" style="float:left;" src="../../img/banwu_img/hudongjiaoliu_xiao.png" alt="" />
+  	 	    <img @click="dal" :class="top==2?'top_img':'top_i'" style="float:left;margin-left: 0.65rem;" src="../../img/banwu_img/kaoqingjilv_xaio.png" alt="" />	
+  	 	    <img @click="das" :class="top==3?'top_img':'top_i'" style="float: right;right:0;" src="../../img/qingziying.png" alt="" />	
+		</div>
+  	 </div>
+     <div style="width: 100%;height: 0.266666rem;background: #F5F5F5;"></div>
+     
+	 <img class="click_pin" src="../../img/ke_img/dianping.png" alt="">
+	 
+	 <div class="to_box">
+		<div class="img_boxs"><img src="../../img/ke_img/dianpingp.png" ></div>
+		<p class="tatil">查看班级评价</p>
+		<div class="ban_box_f">
+			<div @click="to_view" v-for="i in 6">篮球A班</div>
+		</div>
+	 </div>
+     <div class="btn_box">
+       <div style="height:100%;width:7.173333rem;position:absolute;left: 0;right: 0;top: 0;bottom: 0;margin:auto;">
+    	<div @click="ke_tang" style=""><img style="margin-left:0.04rem;" src="../../img/ketang_hui@2x.png" alt="" /><p style="color:#999999;">课堂</p></div>
+    	<div  style="margin-left: 2.733333rem;"><img  style="width: 0.413333rem;height: 0.453333rem;margin-left:0.09rem" src="../../img/banwu-hong@2x.png" alt="" /><p style="color: #BE1B1B;">班务</p></div>	
+    	<div @click="xiaos" style="float: right;"><img style="width: 0.52rem;height: 0.493333rem;" src="../../img/xiaoxi_hui@2x.png" alt="" /><p style="color: #999999;">消息</p></div>	
+       </div>
+     </div>
+    
+  </div>
+</body>
+
+<!--移动适配-->  
+  <script type="text/javascript" src="../../js/jq.js"></script>
+  <script src="../../js/axios.js"></script>
+  <script src="../../js/vuex.js"></script>
+
+  <script>
+    //控制微信浏览器回退按钮，跳转至指定页面
+  	pushHistory();
+        window.addEventListener("popstate",function(e){
+            location.href='./ke_home.html'
+        });
+        function pushHistory(){
+        var state = { 
+            title:"title", 
+            url:"#"
+        }; 
+        window.history.pushState(state,"title","#"); 
+    } 
+    
+    
+    new Vue({
+      el: '#app',
+      data: function(){
+        return {
+        	show_xxs:false,
+        	top:3,
+          
+        }
+      },
+      methods:{
+        to_view(){
+			location.href = './01View_class.html'
+		},
+      	xiaos(){
+      		 location.href = '../003xiaoxi.html'
+      	},
+      	add(){
+      	 	location.href= '../002add.html'
+      	 },
+      	 ke_tang(){
+      	 	 location.href = '../Classroomss.html'
+      	 },
+      	 
+      	das(){
+			this.top=3;
+		},
+		
+      	dal(){
+      		this.top=2;
+      		setTimeout(function(){
+    	      location.href = '../002banwu_kaoqin.html'
+    	    },300);
+      	},
+      	dat(){
+      		this.top = 1;
+			setTimeout(function(){
+			  location.href = '../002ban_wu.html'
+			},300);
+      	},
+        
+         
+           
+      },
+      mounted(){
+      	   $('#mengs').fadeOut(100);
+      	   $('#app').css('min-height',document.documentElement.clientHeight);
+      	   document.getElementById('mengs').style.height = document.documentElement.clientHeight+'px';   	
+      	   
+      }
+      
+    })
+  </script>
+</html>
